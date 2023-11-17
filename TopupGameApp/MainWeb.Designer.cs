@@ -68,7 +68,7 @@
             this.WebName.Font = new System.Drawing.Font("MV Boli", 19F, System.Drawing.FontStyle.Bold);
             this.WebName.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.WebName.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.WebName.Location = new System.Drawing.Point(280, -3);
+            this.WebName.Location = new System.Drawing.Point(273, 2);
             this.WebName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.WebName.Name = "WebName";
             this.WebName.Size = new System.Drawing.Size(364, 41);
