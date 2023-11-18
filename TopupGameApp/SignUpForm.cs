@@ -48,26 +48,39 @@ namespace TopupGameApp
             }
             else
             {
-                string strConnectString = System.Configuration.ConfigurationSettings.AppSettings["MyConnectString"]
-                               .ToString();
-
-                string strCommand = "dbLogin";
-
-                SqlConnection myConnection = new SqlConnection(strConnectString);
-                myConnection.Open();
-
-                SqlCommand myCommand = new SqlCommand(strCommand, myConnection);
-                myCommand.CommandType = CommandType.StoredProcedure;
-                myCommand.Parameters.AddWithValue("@Username", txtName.Text);
-                myCommand.Parameters.AddWithValue("@Password", txtPassword.Text);
-                myCommand.Parameters.Add(new SqlParameter("@Check", SqlDbType.VarChar, 10));
-                myCommand.Parameters["@Check"].Direction = ParameterDirection.Output;
-                myCommand.ExecuteNonQuery();
-                MessageBox.Show(myCommand.Parameters["@Check"].Value.ToString());
-                myConnection.Close();
-                MessageBox.Show("Dang ki tai khoan thanh cong");
-                this.Close();
+                LogIn();
             }
+        }
+
+        private void LogIn()
+        {
+            string strConnectString = System.Configuration.ConfigurationSettings.AppSettings["MyConnectString"]
+                                           .ToString();
+
+            string strCommand = "dbLogin";
+
+            SqlConnection myConnection = new SqlConnection(strConnectString);
+            myConnection.Open();
+
+            SqlCommand myCommand = new SqlCommand(strCommand, myConnection);
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.Parameters.AddWithValue("@Username", txtName.Text);
+            myCommand.Parameters.AddWithValue("@Password", txtPassword.Text);
+            myCommand.Parameters.Add(new SqlParameter("@Check", SqlDbType.VarChar, 10));
+            myCommand.Parameters["@Check"].Direction = ParameterDirection.Output;
+            myCommand.ExecuteNonQuery();
+            if (Convert.ToBoolean(myCommand.Parameters["@Check"].Value.ToString()))
+            {
+                MessageBox.Show("Dang nhap thanh cong");
+            }
+            else
+            {
+                MessageBox.Show("Dang nhap that bai, vui long kiem tra lai username va password");
+
+            };
+            myConnection.Close();
+
+            this.Close();
         }
 
         private void SignUp()
@@ -75,16 +88,17 @@ namespace TopupGameApp
             string strConnectString = System.Configuration.ConfigurationSettings.AppSettings["MyConnectString"]
                                .ToString();
 
-            string strCommand = "Insert into IUSER (USERNAME,IPASSWORD, IEMAIL) values (" +
+            string strCommand = "Insert into ACCOUNT (usn, pwd) values (" +
                 " '" + txtName.Text + "'," +
-                " '" + txtPassword.Text + "'," +
-                " '" + txtEmail.Text + "')";
+                " '" + txtPassword.Text + "')";
 
             SqlConnection myConnection = new SqlConnection(strConnectString);
             myConnection.Open();
             SqlCommand myCommand = new SqlCommand(strCommand, myConnection);
             myCommand.ExecuteNonQuery();
             myConnection.Close();
+            MessageBox.Show("Dang ki tai khoan thanh cong");
+
             this.Close();
         }
 
@@ -93,8 +107,6 @@ namespace TopupGameApp
             if (isSignUp == false)
             {
                 SignUplb.Text = "LOG IN";
-                Emaillb.Visible = false;
-                txtEmail.Visible = false;
                 btnSignup.Text = "Log In";
             }
 

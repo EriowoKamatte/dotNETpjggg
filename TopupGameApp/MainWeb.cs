@@ -23,7 +23,7 @@ namespace TopupGameApp
             signupForm.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
 
         }
@@ -42,6 +42,16 @@ namespace TopupGameApp
         {
             SignupForm signupForm = new SignupForm(true);
             signupForm.ShowDialog();
+        }
+
+        private void btnMainPage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,52 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWeb));
             this.NavigateBar = new System.Windows.Forms.Panel();
             this.WebName = new System.Windows.Forms.Label();
             this.btnCart = new System.Windows.Forms.Button();
             this.pnSearch = new System.Windows.Forms.Panel();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnMainPage = new System.Windows.Forms.Button();
             this.btnSignup = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ProductView = new System.Windows.Forms.ListView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.NavigateBar.SuspendLayout();
             this.pnSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // NavigateBar
             // 
             this.NavigateBar.BackColor = System.Drawing.Color.SpringGreen;
+            this.NavigateBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NavigateBar.BackgroundImage")));
             this.NavigateBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.NavigateBar.Controls.Add(this.pictureBox1);
             this.NavigateBar.Controls.Add(this.WebName);
             this.NavigateBar.Controls.Add(this.btnCart);
             this.NavigateBar.Controls.Add(this.pnSearch);
             this.NavigateBar.Controls.Add(this.btnSearch);
-            this.NavigateBar.Controls.Add(this.btnMainPage);
             this.NavigateBar.Controls.Add(this.btnSignup);
             this.NavigateBar.Controls.Add(this.btnLogin);
             this.NavigateBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.NavigateBar.Location = new System.Drawing.Point(0, 0);
             this.NavigateBar.Margin = new System.Windows.Forms.Padding(2);
             this.NavigateBar.Name = "NavigateBar";
-            this.NavigateBar.Size = new System.Drawing.Size(921, 86);
+            this.NavigateBar.Size = new System.Drawing.Size(921, 93);
             this.NavigateBar.TabIndex = 0;
             // 
             // WebName
             // 
             this.WebName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.WebName.AutoSize = true;
+            this.WebName.BackColor = System.Drawing.Color.Transparent;
             this.WebName.Font = new System.Drawing.Font("MV Boli", 19F, System.Drawing.FontStyle.Bold);
-            this.WebName.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.WebName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.WebName.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.WebName.Location = new System.Drawing.Point(273, 2);
+            this.WebName.Location = new System.Drawing.Point(303, 2);
             this.WebName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.WebName.Name = "WebName";
-            this.WebName.Size = new System.Drawing.Size(364, 41);
+            this.WebName.Size = new System.Drawing.Size(296, 41);
             this.WebName.TabIndex = 6;
-            this.WebName.Text = "xxx TOP-UP CENTER";
+            this.WebName.Text = "TOP-UP CENTER";
             this.WebName.Click += new System.EventHandler(this.WebName_Click);
             // 
             // btnCart
@@ -103,11 +107,13 @@
             // 
             this.SearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SearchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SearchBox.Location = new System.Drawing.Point(0, 9);
+            this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBox.Location = new System.Drawing.Point(8, 10);
             this.SearchBox.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(526, 13);
+            this.SearchBox.Size = new System.Drawing.Size(526, 20);
             this.SearchBox.TabIndex = 0;
+            this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
             // 
             // btnSearch
             // 
@@ -119,17 +125,7 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // btnMainPage
-            // 
-            this.btnMainPage.Location = new System.Drawing.Point(2, 2);
-            this.btnMainPage.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMainPage.Name = "btnMainPage";
-            this.btnMainPage.Size = new System.Drawing.Size(106, 76);
-            this.btnMainPage.TabIndex = 2;
-            this.btnMainPage.Text = "LOGO_placeholder";
-            this.btnMainPage.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnSignup
             // 
@@ -157,24 +153,38 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.SpringGreen;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 517);
+            this.panel1.Location = new System.Drawing.Point(0, 500);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(921, 31);
+            this.panel1.Size = new System.Drawing.Size(921, 48);
             this.panel1.TabIndex = 1;
             // 
             // ProductView
             // 
             this.ProductView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProductView.HideSelection = false;
-            this.ProductView.Location = new System.Drawing.Point(0, 86);
+            this.ProductView.Location = new System.Drawing.Point(0, 93);
             this.ProductView.Name = "ProductView";
-            this.ProductView.Size = new System.Drawing.Size(921, 431);
+            this.ProductView.Size = new System.Drawing.Size(921, 407);
             this.ProductView.TabIndex = 3;
             this.ProductView.UseCompatibleStateImageBehavior = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(39, -8);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(101, 102);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // MainWeb
             // 
@@ -192,6 +202,7 @@
             this.NavigateBar.PerformLayout();
             this.pnSearch.ResumeLayout(false);
             this.pnSearch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,7 +211,6 @@
 
         private System.Windows.Forms.Panel NavigateBar;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnMainPage;
         private System.Windows.Forms.Button btnSignup;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Panel pnSearch;
@@ -209,6 +219,7 @@
         private System.Windows.Forms.Label WebName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView ProductView;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
