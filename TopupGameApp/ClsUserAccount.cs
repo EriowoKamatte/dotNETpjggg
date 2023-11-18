@@ -9,7 +9,6 @@ namespace TopupGameApp
     public class UserAccount
     {
         public string Username = "";
-        public string Email = "";
         public string Password = "";
     }
 }
